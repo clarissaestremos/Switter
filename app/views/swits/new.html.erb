@@ -1,31 +1,37 @@
+
+<div id="login">
+   <%= link_to '<--Back', swits_path%>
 <h1>Login</h1>
 
 <%= form_for :swit, url: swits_path do |f| %>
  <% if @swit.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@swit.errors.count, "error") %> error:</h2>
+    <h2><%= pluralize(@swit.errors.count, "error") %> prohibited this swit from being saved:</h2>
+ 
     <ul>
     <% @swit.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
   </div>
-  <% end %>
-
-  <p>
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </p>
- 
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </p>
- 
-  <p>
-    <%= f.submit "Login" %>
-  </p>
 <% end %>
 
 
-<%= link_to 'Back', swits_path %>
+  <div class="form-inputs">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+ 
+ 
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+
+
+  <div class="form-actions">
+    <%= f.submit "Login", class: 'small button', id: 'log-btn' %>
+  </div>
+
+<% end %>
+</div>
+
+

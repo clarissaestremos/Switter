@@ -11,6 +11,7 @@
 
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
+@import "foundation/components/buttons";
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
@@ -497,7 +498,7 @@
 // $include-html-form-classes: $include-html-classes;
 
 // We use this to set the base for lots of form spacing and positioning styles
-// $form-spacing: rem-calc(16);
+ $form-spacing: rem-calc(16);
 
 // We use these to style the labels in different ways
 // $form-label-pointer: pointer;
@@ -962,7 +963,7 @@
 
 // Split Buttons
 
-// $include-html-button-classes: $include-html-classes;
+ //$include-html-button-classes: $include-html-classes;
 
 // We use these to control different shared styles for Split Buttons
 // $split-button-function-factor: 10%;

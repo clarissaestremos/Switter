@@ -46,3 +46,6 @@ end
 
 #Use Foundation
 gem 'foundation-rails'
+
+gem 'simple_form', '~> 3.0.0.rc'
+

@@ -8,7 +8,7 @@ class RegistersController < ApplicationController
 	 
 
 	 if @register.save
-	  redirect_to @register
+	  redirect_to '/posts/'
 	else 'new'
 	end
 end

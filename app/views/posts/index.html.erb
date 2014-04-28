@@ -1,18 +1,21 @@
 <h1>List of Swits</h1>
 <table>
   <tr>
-    <th>Sweet</th>
+    <th>Swits</th>
     <th colspan="4"></th>
   </tr>
  
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.body %></td>
+    <td><%= link_to 'View and Comment', post %></td>
     <td><%= link_to 'Sweet' %></td>
     <td><%= link_to 'Sour' %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    
   </tr>
 <% end %>
 </table>
 
-<%= link_to 'Write a Sweet', new_post_path %>
+<%= link_to 'Write a Sweet', new_post_path %> |
 <%= link_to 'Logout', swits_path %>
