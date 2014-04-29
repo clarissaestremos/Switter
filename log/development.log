@@ -31977,3 +31977,2565 @@ Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 16:14:18 +0
 
 
 Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 16:14:18 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddSweetToPosts (20140429085310)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (3.0ms)[0m  [1mALTER TABLE "posts" ADD "sweet" integer[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140429085310"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:01:33 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (37.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (361.0ms)
+Completed 500 Internal Server Error in 475ms
+
+ActionView::Template::Error (undefined local variable or method `sweet' for #<#<Class:0x532a3d0>:0x5329b90>):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <%= link_to 'Sweet', post_path(sweet) %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_43599036'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_43599036'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (25.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (163.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:01:55 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (2.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (99.0ms)
+Completed 500 Internal Server Error in 135ms
+
+ActionView::Template::Error (undefined local variable or method `sweet' for #<#<Class:0x5337978>:0x5337138>):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <%= link_to 'Sweet', post_path(sweet) %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_43599036'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_43599036'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (89.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:02:14 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (36.0ms)
+Completed 500 Internal Server Error in 58ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"posts", :id=>nil} missing required keys: [:id]):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <%= link_to 'Sweet', post_path(@sweet) %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_26716620'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26716620'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (88.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:02:31 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (39.0ms)
+Completed 500 Internal Server Error in 62ms
+
+ActionView::Template::Error (undefined method `post' for #<#<Class:0x5337978>:0x367bde0>):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <%= link_to 'Sweet', post(@sweet) %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_28587852'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_28587852'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (128.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:03:17 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (33.0ms)
+Completed 500 Internal Server Error in 52ms
+
+ActionView::Template::Error (undefined local variable or method `sweet' for #<#<Class:0x5337978>:0x32580c0>):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <%= link_to 'Sweet', post_index_path(sweet) %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_27562632'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_27562632'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (69.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:12:49 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (2.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (46.0ms)
+Completed 500 Internal Server Error in 73ms
+
+ActionView::Template::Error (undefined local variable or method `sweet_path' for #<#<Class:0x39414d8>:0x393eb98>):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <%= link_to 'Sweet', sweet_path %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_30492924'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_30492924'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (82.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:18:03 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (2.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (30.0ms)
+Completed 500 Internal Server Error in 58ms
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:      <%= link_to "Sweet", {:controller => "post", :action => "sweet", :id => @post.id } %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_43601640'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_43601640'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (96.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:18:16 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (70.0ms)
+Completed 500 Internal Server Error in 93ms
+
+ActionView::Template::Error (No route matches {:action=>"sweet", :controller=>"post"}):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:      <%= link_to "Sweet", {:controller => "post", :action => "sweet"} %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_29967528'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_29967528'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (41.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (130.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:19:12 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (40.0ms)
+Completed 500 Internal Server Error in 64ms
+
+ActionView::Template::Error (undefined method `sweet_post_path' for #<#<Class:0x532b408>:0x35e4520>):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:      <%= link_to "Sweet", sweet_post_path(post), :action => "sweet" %>
+    28:     <%= link_to 'Sour' %>
+    29:     <%= link_to 'Edit', edit_post_path(post) %>
+    30:     <%= render post.comments %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_28341300'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_28341300'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (93.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:20:19 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (2.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (20.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (132.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (728.0ms)
+Completed 500 Internal Server Error in 807ms
+
+ActionView::Template::Error (undefined local variable or method `i' for #<#<Class:0x537c1e0>:0x532c2d8>):
+    52: 
+    53: </div>
+    54: 
+    55:  <!-- <%= (i+1) %>. <%= record.foo %> <br /> -->
+  app/views/posts/index.html.erb:55:in `_app_views_posts_index_html_erb__1013500502_43604196'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (102.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:20:41 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (5.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (1.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (3.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (178.0ms)
+Completed 200 OK in 487ms (Views: 466.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:42 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:42 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:43 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:43 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:43 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:43 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:43 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:43 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:43 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:20:43 +0800
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2014-04-29 17:20:46 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  Rendered comments/_form.html.erb (33.0ms)
+  Rendered posts/show.html.erb within layouts/application (63.0ms)
+Completed 200 OK in 198ms (Views: 160.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:46 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:20:47 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:20:50 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (242.0ms)
+Completed 200 OK in 322ms (Views: 306.0ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:20:51 +0800
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2014-04-29 17:21:02 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (11.0ms)
+  Rendered comments/_form.html.erb (5.0ms)
+  Rendered posts/show.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 116ms (Views: 109.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:02 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:02 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:02 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:02 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:02 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:02 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:03 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:03 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:03 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:21:03 +0800
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2014-04-29 17:21:58 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  Rendered comments/_form.html.erb (5.0ms)
+  Rendered posts/show.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 112ms (Views: 107.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:58 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:58 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:59 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:59 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:59 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:59 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:59 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:59 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:21:59 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:21:59 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:22:03 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    24: <% @posts.each do |post, i| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:      <%= (i+1) %>. <%= post.sweet %> 
+    28:      <%= link_to "Sweet", post_path(post), :action => "sweet" %>
+    29:     <%= link_to 'Sour' %>
+    30:     <%= link_to 'Edit', edit_post_path(post) %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_30898992'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_30898992'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (92.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:23:07 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (26.0ms)
+Completed 500 Internal Server Error in 54ms
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    24: <% @posts.each do |post, i| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:      <%= post.sweet + 1 %> 
+    28:      <%= link_to "Sweet", post_path(post), :action => "sweet" %>
+    29:     <%= link_to 'Sour' %>
+    30:     <%= link_to 'Edit', edit_post_path(post) %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_26394876'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26394876'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (94.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:24:55 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (3.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (197.0ms)
+Completed 200 OK in 345ms (Views: 333.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:24:56 +0800
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  Rendered comments/_form.html.erb (7.0ms)
+  Rendered posts/show.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 123ms (Views: 117.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:25:00 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:25:05 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (214.0ms)
+Completed 200 OK in 291ms (Views: 275.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:05 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:05 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:05 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:06 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:06 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:06 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:06 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:06 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:06 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:25:06 +0800
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2014-04-29 17:25:09 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.erb (6.0ms)
+  Rendered posts/show.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 168ms (Views: 108.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:09 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:09 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:09 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:10 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:10 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:10 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:10 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:10 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:10 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:25:10 +0800
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.erb (6.0ms)
+  Rendered posts/show.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 104ms (Views: 99.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:25:32 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (5.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (260.0ms)
+Completed 200 OK in 339ms (Views: 326.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:35 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:25:36 +0800
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2014-04-29 17:25:37 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  Rendered comments/_form.html.erb (5.0ms)
+  Rendered posts/show.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 113ms (Views: 107.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:37 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:25:38 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:25:44 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (4.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (4.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (8.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (275.0ms)
+Completed 200 OK in 349ms (Views: 330.0ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:25:45 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:32:53 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (59.0ms)
+Completed 500 Internal Server Error in 89ms
+
+ActionView::Template::Error (undefined local variable or method `compteur' for #<#<Class:0x537c1e0>:0x3656ad8>):
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:      <h1><%= post.sweet %></h1>
+    28:      Compteur <%= compteur %>
+    29: <% compteur = compteur.to_i  -%>
+    30: <% compteur += 1 -%>
+    31: Compteur <%= compteur %>
+  app/views/posts/index.html.erb:28:in `block in _app_views_posts_index_html_erb__1013500502_28563264'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_28563264'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (29.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (118.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:33:04 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (8.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (258.0ms)
+Completed 200 OK in 472ms (Views: 457.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:33:05 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:34:05 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (undefined method `created_at' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted <%= time_ago_in_words(@post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", post_path(post), :action => "sweet" %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_26709648'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26709648'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (89.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:34:17 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (1.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (423.0ms)
+Completed 500 Internal Server Error in 445ms
+
+ActionView::Template::Error (undefined method `>' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted <%= time_ago_in_words(post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", post_path(post), :action => "sweet" %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_28506036'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_28506036'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (87.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (310.0ms)
+Completed 200 OK in 388ms (Views: 375.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:34:47 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:36:59 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (99.0ms)
+Completed 500 Internal Server Error in 180ms
+
+ActionView::Template::Error (undefined method `sweet_post_path' for #<#<Class:0x537c1e0>:0x3546408>):
+    27:     <strong>Posted last <%= post.created_at %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", sweet_post_path(post)%>
+    31:     <%= link_to 'Sour' %>
+    32:     <%= link_to 'Edit', edit_post_path(post) %>
+    33:     <%= render post.comments %>
+  app/views/posts/index.html.erb:30:in `block in _app_views_posts_index_html_erb__1013500502_26715756'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26715756'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (18.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (106.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:37:52 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mPost Load (2.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (54.0ms)
+Completed 500 Internal Server Error in 91ms
+
+ActionView::Template::Error (undefined method `sweet_post_path' for #<#<Class:0x532bfc0>:0x532b6f0>):
+    27:     <strong>Posted last <%= post.created_at %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", sweet_post_path(post)%>
+    31:     <%= link_to 'Sour' %>
+    32:     <%= link_to 'Edit', edit_post_path(post) %>
+    33:     <%= render post.comments %>
+  app/views/posts/index.html.erb:30:in `block in _app_views_posts_index_html_erb__1013500502_26715756'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26715756'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (58.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (144.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:41:08 +0800
+
+SyntaxError (C:/wamp/www/Switter/config/routes.rb:70: syntax error, unexpected $end, expecting keyword_end):
+  activesupport (4.0.4) lib/active_support/dependencies.rb:223:in `load'
+  activesupport (4.0.4) lib/active_support/dependencies.rb:223:in `block in load'
+  activesupport (4.0.4) lib/active_support/dependencies.rb:214:in `load_dependency'
+  activesupport (4.0.4) lib/active_support/dependencies.rb:223:in `load'
+  railties (4.0.4) lib/rails/application/routes_reloader.rb:40:in `block in load_paths'
+  railties (4.0.4) lib/rails/application/routes_reloader.rb:40:in `each'
+  railties (4.0.4) lib/rails/application/routes_reloader.rb:40:in `load_paths'
+  railties (4.0.4) lib/rails/application/routes_reloader.rb:16:in `reload!'
+  railties (4.0.4) lib/rails/application/routes_reloader.rb:26:in `block in updater'
+  activesupport (4.0.4) lib/active_support/file_update_checker.rb:75:in `call'
+  activesupport (4.0.4) lib/active_support/file_update_checker.rb:75:in `execute'
+  C:in `execute'
+  railties (4.0.4) lib/rails/application/finisher.rb:81:in `block (2 levels) in <module:Finisher>'
+  activesupport (4.0.4) lib/active_support/callbacks.rb:407:in `_run__159458678__prepare__callbacks'
+  activesupport (4.0.4) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.4) lib/action_dispatch/middleware/reloader.rb:74:in `prepare!'
+  actionpack (4.0.4) lib/action_dispatch/middleware/reloader.rb:62:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.4) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.4) lib/rails/engine.rb:511:in `call'
+  railties (4.0.4) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (174.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:41:19 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (2.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (112.0ms)
+Completed 500 Internal Server Error in 148ms
+
+ActionView::Template::Error (undefined method `sweet_path' for #<#<Class:0x52f0920>:0x52f00e0>):
+    27:     <strong>Posted last <%= post.created_at %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", sweet_path(@post)%>
+    31:     <%= link_to 'Sour' %>
+    32:     <%= link_to 'Edit', edit_post_path(post) %>
+    33:     <%= render post.comments %>
+  app/views/posts/index.html.erb:30:in `block in _app_views_posts_index_html_erb__1013500502_43497912'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_43497912'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (100.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:44:20 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (2.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (88.0ms)
+Completed 500 Internal Server Error in 129ms
+
+ActionView::Template::Error (No route matches {:action=>"sweet", :controller=>"post"}):
+    27:     <strong>Posted last <%= post.created_at %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", :action => 'sweet', :controller => 'post' %>
+    31:     <%= link_to 'Sour' %>
+    32:     <%= link_to 'Edit', edit_post_path(post) %>
+    33:     <%= render post.comments %>
+  app/views/posts/index.html.erb:30:in `block in _app_views_posts_index_html_erb__1013500502_43796448'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_43796448'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (108.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:46:38 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (undefined method `created_at' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted last <%= time_ago_in_words(@post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", :action => 'sweet', :controller => 'post' %>     <%=
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_28336752'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_28336752'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (107.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:46:48 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 44ms
+
+ActionView::Template::Error (No route matches {:action=>"sweet", :controller=>"post"}):
+    27:     <strong>Posted last <%= time_ago_in_words(post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", :action => 'sweet', :controller => 'post' %>     <%=
+    31: link_to 'Sour' %>     <%= link_to 'Edit', edit_post_path(post) %>     <%=
+    32: render post.comments %>     <div id="form_comment"> <%= form_for([post,
+    33: post.comments.build]) do |f| %>   <p>     <%= f.label :commenter %><br>
+  app/views/posts/index.html.erb:30:in `block in _app_views_posts_index_html_erb__1013500502_26708280'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26708280'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (107.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:47:43 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (45.0ms)
+Completed 500 Internal Server Error in 69ms
+
+SyntaxError (C:/wamp/www/Switter/app/views/posts/index.html.erb:36: syntax error, unexpected keyword_do_block, expecting keyword_end
+      do |f| @output_buffer.safe_appe...
+        ^
+C:/wamp/www/Switter/app/views/posts/index.html.erb:52: syntax error, unexpected keyword_ensure, expecting $end):
+  actionpack (4.0.4) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.4) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.4) lib/action_view/template.rb:248:in `block in compile!'
+  <internal:prelude>:10:in `synchronize'
+  actionpack (4.0.4) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.4) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.4) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.4) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.4) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.4) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.4) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.4) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.4) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.4) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.4) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.4) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.4) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.4) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.4) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.4) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.4) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.4) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.4) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.4) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.4) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.0.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.4) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.4) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.4) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.4) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.4) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.4) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.4) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.4) lib/active_support/callbacks.rb:403:in `_run__419100530__process_action__callbacks'
+  activesupport (4.0.4) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.4) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.0.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.4) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.4) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.4) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.4) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.4) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.4) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.4) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.4) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.4) lib/action_dispatch/routing/route_set.rb:674:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.4) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.4) lib/active_support/callbacks.rb:373:in `_run__506032678__call__callbacks'
+  activesupport (4.0.4) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.4) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.4) lib/rails/engine.rb:511:in `call'
+  railties (4.0.4) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (131.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:48:23 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (2.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 44ms
+
+ActionView::Template::Error (No route matches {:action=>"sweet", :controller=>"post"}):
+    27:     <strong>Posted last <%= time_ago_in_words(post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet", :action => 'sweet', :controller => 'post' %>
+    31:     <%= link_to 'Sour' %>
+    32:     <%= link_to 'Edit', edit_post_path(post) %>
+    33:     <%= render post.comments %>
+  app/views/posts/index.html.erb:30:in `block in _app_views_posts_index_html_erb__1013500502_28341360'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_28341360'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (90.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:48:31 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (13.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (286.0ms)
+Completed 500 Internal Server Error in 307ms
+
+ActionView::Template::Error (undefined method `>' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted last <%= time_ago_in_words(post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet" %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_26730684'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26730684'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (137.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:49:23 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (9.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (286.0ms)
+Completed 500 Internal Server Error in 312ms
+
+ActionView::Template::Error (undefined method `>' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted last <%= time_ago_in_words(post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet" %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_26394012'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26394012'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (91.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:49:50 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (5.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (31.0ms)
+Completed 500 Internal Server Error in 60ms
+
+ActionView::Template::Error (undefined method `>' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted last <%= time_ago_in_words(post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:     
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_23932620'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_23932620'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (104.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:49:57 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (216.0ms)
+Completed 500 Internal Server Error in 238ms
+
+ActionView::Template::Error (undefined method `>' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted last <%= time_ago_in_words(post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet" %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_26690568'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_26690568'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (92.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:50:08 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (1.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (206.0ms)
+Completed 200 OK in 321ms (Views: 315.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:50:09 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:50:43 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[35mPost Load (2.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (2.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (8.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (3.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (293.0ms)
+Completed 500 Internal Server Error in 317ms
+
+ActionView::Template::Error (undefined method `>' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted last <%= time_ago_in_words(post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet" %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_24281736'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_24281736'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (67.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:51:04 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 43ms
+
+ActionView::Template::Error (undefined method `created_at' for nil:NilClass):
+    24: <% @posts.each do |post| %>
+    25:   <tr>
+    26:     <h4><%= post.body %></h4>
+    27:     <strong>Posted last <%= time_ago_in_words(@post.created_at) %></strong>
+    28:      <h1><%= post.sweet %></h1>
+    29:  
+    30:      <%= link_to "Sweet" %>
+  app/views/posts/index.html.erb:27:in `block in _app_views_posts_index_html_erb__1013500502_24005160'
+  app/views/posts/index.html.erb:24:in `_app_views_posts_index_html_erb__1013500502_24005160'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (89.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:51:25 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (8.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (1.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (3.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (289.0ms)
+Completed 200 OK in 424ms (Views: 410.0ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:51:26 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:51:55 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (1.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (241.0ms)
+Completed 200 OK in 305ms (Views: 292.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:51:56 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:52:00 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (2.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (1.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (230.0ms)
+Completed 200 OK in 308ms (Views: 301.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:00 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:00 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:00 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:00 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:00 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:00 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:00 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:01 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:01 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:52:01 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:52:02 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (217.0ms)
+Completed 200 OK in 296ms (Views: 282.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:52:03 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:52:54 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.erb (6.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 13]]
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (265.0ms)
+Completed 200 OK in 442ms (Views: 434.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:52:55 +0800
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-04-29 17:53:06 +0800
+Processing by PostsController#index as HTML
+  Rendered posts/_form.html.erb (1.0ms)
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.erb (7.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 6]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 8]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 11]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered comments/_comment.html.erb (3.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 18]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 19]]
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (256.0ms)
+Completed 200 OK in 356ms (Views: 337.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/registers.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/swits.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-04-29 17:53:07 +0800

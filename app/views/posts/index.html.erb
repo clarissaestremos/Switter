@@ -24,7 +24,10 @@
 <% @posts.each do |post| %>
   <tr>
     <h4><%= post.body %></h4>
-    <%= link_to 'Sweet' %>
+    <strong>Posted last <%= post.created_at %></strong>
+     <h1><%= post.sweet %></h1>
+ 
+     <%= link_to "Sweet" %>
     <%= link_to 'Sour' %>
     <%= link_to 'Edit', edit_post_path(post) %>
     <%= render post.comments %>
@@ -51,3 +54,4 @@
 </table>
 
 </div>
+

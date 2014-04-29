@@ -18,9 +18,17 @@ def show
   @post = Post.find(params[:id])
 end
 
+
 def edit
     @post = Post.find(params[:id])
   end
+
+
+def sweet
+    @post = Post.find(params[:id])
+    @post.update_attribute(:sweet, @post.sweet+1)
+
+end
 
   def update
     @post = Post.find(params[:id])
@@ -46,7 +54,7 @@ end
  
 private
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :sweet)
   end
 end
 
