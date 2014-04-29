@@ -4,9 +4,8 @@ class SwitsController < ApplicationController
   end
  
   def create
-	  @swit = Swit.new(swit_params)
+	 @swit = Swit.new(swit_params)
 	 
-
 	 if @swit.save
 	  redirect_to @swit
 	else 'new'

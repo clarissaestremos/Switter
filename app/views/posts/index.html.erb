@@ -1,4 +1,20 @@
-<h1>List of Swits</h1>
+<div id="main_title">
+   Switter 
+</div>
+
+<div id="user">
+  Hi username!
+</div>
+
+<div id="settings">
+  <%= link_to 'Change Password' %> | <%= link_to 'Logout', swits_path %>
+</div>
+
+<%= render 'form' %>
+
+
+<div id="list">
+
 <table>
   <tr>
     <th>Swits</th>
@@ -7,15 +23,31 @@
  
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.body %></td>
-    <td><%= link_to 'View and Comment', post %></td>
-    <td><%= link_to 'Sweet' %></td>
-    <td><%= link_to 'Sour' %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <h4><%= post.body %></h4>
+    <%= link_to 'Sweet' %>
+    <%= link_to 'Sour' %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+    <%= render post.comments %>
+    <div id="form_comment">
+<%= form_for([post, post.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body, :placeholder => 'Write a Comment..'%>
+  </p>
+  <p>
+    <%= f.submit "Comment", class: 'small button', id: 'log-btn2'%>
+  </p>
+<% end %>
+
+</div>
+
     
   </tr>
 <% end %>
 </table>
 
-<%= link_to 'Write a Sweet', new_post_path %> |
-<%= link_to 'Logout', swits_path %>
+</div>

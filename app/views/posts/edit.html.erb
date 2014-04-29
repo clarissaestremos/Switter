@@ -1,8 +1,9 @@
-<h1>Edit article</h1>
- <%= form_for :post, url: posts_path do |f| %>
+<h1>Edit Swit</h1>
+ <%= form_for :post, url: post_path, method: :patch do |f| %>
 
   <%= f.text_area :body, size: "60x12" %>
   <%= f.submit "Sweet" %>
 <% end %>
  
 <%= link_to 'Back', posts_path %>
+

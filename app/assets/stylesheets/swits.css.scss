@@ -5,13 +5,15 @@
 
 
 #main_title{
-	margin: 100px;
+	margin-top: 70px;
+	margin-right: 100px;
+	margin-left: 100px;
 	background-color: white;
 	border: solid #00CCFF;
 	border-radius: 20px;
 	text-align: center;
 	font-family: Forte, Corbel;
-	font-color: #0066FF;
+	font-size: 80px;
 }
 
 #portal{
@@ -45,4 +47,43 @@
 
 #log-btn{
 	margin-left: 430px;
+	border-radius: 10px;
+}
+
+#log-btn2{
+	margin-left: 290px;
+	margin-top: -10px;
+	border-radius: 10px;
+}
+
+#user{
+	margin-top: 5px;
+	margin-right: 900px;
+	margin-left: 100px;
+	background-color: white;
+	border: solid #00CCFF;
+	border-radius: 5px;
+	text-align: center;
+	font-family: Arial;
+	font-size: 20px;
+}
+
+#write{
+	float:left;
+	margin-top: 5px;
+	margin-right: 900px;
+	margin-left: 100px;
+}
+
+#settings{
+	margin-top: -25px;
+	margin-right: 100px;
+	margin-left: 500px;
+	background-color: white;
+	border: solid #00CCFF;
+	border-radius: 5px;
+	text-align: right;
+	font-family: Arial;
+	font-size: 15px;
+	padding-right: 10px;
 }

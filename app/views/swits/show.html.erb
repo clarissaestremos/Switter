@@ -1,7 +1,17 @@
-<h1>
-  Hi <%= @swit.username %>!
-</h1>
+<div id="main_title">
+	 Switter 
+</div>
 
-<%= link_to 'List of Sweets', post_path %> |
-<%= link_to 'Write a Sweet', new_post_path %>
+<div id="user">
+  Hi <%= @swit.username %>!
+</div>
+
+<div id="settings">
+	<%= link_to 'Change Password' %> | <%= link_to 'Logout', swits_path %>
+</div>
+
+<%= render 'form' %>
+
+<%= link_to 'List of Swits', posts_path %>
+
 
