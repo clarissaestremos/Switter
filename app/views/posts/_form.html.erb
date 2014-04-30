@@ -1,5 +1,6 @@
 <div id="write">
 	<%= form_for :post, url: posts_path do |f| %>
+	
 	  <%= f.text_area :body, size: "10x10", :placeholder => 'Write a Swit..' %>
 	  <%= f.submit "Sweet", class: 'small button', id: 'log-btn2'%>
 	<% end %>

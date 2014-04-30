@@ -16,42 +16,28 @@
 <div id="list">
 
 <table>
-  <tr>
-    <th>Swits</th>
-    <th colspan="4"></th>
-  </tr>
- 
 <% @posts.each do |post| %>
-  <tr>
-    <h4><%= post.body %></h4>
-    <strong>Posted last <%= post.created_at %></strong>
-     <h1><%= post.sweet %></h1>
- 
-     <%= link_to "Sweet" %>
-    <%= link_to 'Sour' %>
-    <%= link_to 'Edit', edit_post_path(post) %>
-    <%= render post.comments %>
-    <div id="form_comment">
-<%= form_for([post, post.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body, :placeholder => 'Write a Comment..'%>
-  </p>
-  <p>
-    <%= f.submit "Comment", class: 'small button', id: 'log-btn2'%>
-  </p>
-<% end %>
-
-</div>
-
+  
+  <tr> <div id="main">
+   <h4><%= post.body %></h4> 
+        <small><%= post.sweet %> Sweets   |  <strong>Posted <%= time_ago_in_words(post.created_at) %> ago</strong> </small>
+        <div id="menu"><%= link_to "Sweet" %> | <%= link_to 'Sour' %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post_path(post),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></div>
     
+    <%= render post.comments %>
+  
+    <div id="form_comment">
+      <%= form_for([post, post.comments.build]) do |f| %>
+          <%= f.text_field :commenter, :placeholder => 'Commenter' %>
+          <%= f.text_area :body, size: "120x5", :placeholder => 'Write a Comment..'%>
+          <%= f.submit "Comment", class: 'tiny button', id: 'log-btn2'%>
+      <% end %>
+      </div>
+    </div>
   </tr>
+
+
 <% end %>
 </table>
 
-</div>
 

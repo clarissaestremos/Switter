@@ -1,4 +1,6 @@
 Switter::Application.routes.draw do
+  resources :sweets
+
   devise_for :users
   resources :users
 

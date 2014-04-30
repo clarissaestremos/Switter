@@ -1,9 +1,35 @@
-<h1>Edit Swit</h1>
+
+
+<div id="main_title">
+   Switter 
+</div>
+
+<div id="user">
+  Hi username!
+</div>
+
+<div id="settings">
+  <%= link_to 'Change Password' %> | <%= link_to 'Logout', swits_path %>
+</div>
+
+<%= render 'form' %>
+
+
+<div id="list">
+
+<table>
+
+  <tr>
+    <h4>Edit Swit</h4>
  <%= form_for :post, url: post_path, method: :patch do |f| %>
 
-  <%= f.text_area :body, size: "60x12" %>
-  <%= f.submit "Sweet" %>
+  <%= f.text_area :body, size: "120x12" %>
+  <%= f.submit "Edit",  class: 'tiny button', id: 'log-btn2' %>
 <% end %>
  
 <%= link_to 'Back', posts_path %>
+  </tr>
 
+</table>
+
+</div>
