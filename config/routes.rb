@@ -1,6 +1,6 @@
 Switter::Application.routes.draw do
   
-  devise_for :users
+
   resources :users
 
   resources :swits 
@@ -9,6 +9,7 @@ Switter::Application.routes.draw do
 
   get 'post/sour/:id' => 'posts#sour', as: 'sour_a_post'
 
+resources :posts
 
   resources :posts do
     resources :comments
@@ -19,7 +20,7 @@ Switter::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'users#index'
+   root :to => 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

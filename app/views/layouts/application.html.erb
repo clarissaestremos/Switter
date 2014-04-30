@@ -7,14 +7,13 @@
     <title><%= content_for?(:title) ? yield(:title) : "Switter" %></title>
 
    <%= stylesheet_link_tag    "application" %>
- 
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
-
     <%= yield %>
   </body>
 </html>
