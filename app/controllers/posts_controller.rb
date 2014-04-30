@@ -22,14 +22,7 @@ def edit
     @post = Post.find(params[:id])
 end
 
-
-def sweet
-    @post = Post.find(params[:id])
-    @post.update_attribute(:sweet, @post.sweet+1)
-     redirect_to posts_path
-end
-
-  def update
+def update
     @post = Post.find(params[:id])
    
     if @post.update(post_params)
@@ -43,8 +36,32 @@ end
     @post = Post.find(params[:id])
     @post.destroy
    
-    redirect_to posts_path
+     redirect_to posts_path, :notice => "Your post has been deleted successfully."
   end
+
+def sweet
+    @post = Post.find_by(id: params[:id])
+    
+    if @post
+      @post.sweet = @post.sweet.to_i + 1
+      if @post.save
+        redirect_to posts_path
+      end
+    end
+end
+
+def sour
+    @post = Post.find_by(id: params[:id])
+    
+    if @post
+      @post.sour = @post.sour.to_i + 1
+      if @post.save
+        redirect_to posts_path
+      end
+    end
+end
+
+  
 
 def index
   @posts = Post.all
