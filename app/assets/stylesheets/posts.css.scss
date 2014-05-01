@@ -14,7 +14,7 @@
 
 #list{
 	float:left;
-	margin-top: -260px;
+	margin-top: -350px;
 	margin-right: 100px;
 	margin-left: 500px;
 }
@@ -40,11 +40,11 @@
 }
 
 #main{
-	border: solid black;
+	border: solid #0066FF;
 	border-radius: 5px;
 	padding: 10px;
 	margin: 5px;
-	background-color: #B8B8B8;
+	background-color: #B8B8B8 0.5;
 }
 
 .countdown {
@@ -57,7 +57,7 @@
 
 body{
 	background-image: url('bg.jpg');
-	background-size: 92%;
+	background-size: 100%;
 }
 
 #user{
@@ -65,8 +65,8 @@ body{
 	margin-right: 900px;
 	margin-left: 100px;
 	background-color: #00CCFF;
-	border: solid #B8B8B8;
-	border-radius: 55px;
+	border: solid #0066FF;
+	border-radius: 25px;
 	text-align: center;
 	font-family: Arial;
 	font-size: 20px;
@@ -74,6 +74,11 @@ body{
 }
 
 #settings{
-	margin-top: -45px;
-	padding: 10px;
+	text-align:right;
+	padding-right: 10px;
+	background-color: #00CCFF;
+	margin-bottom: -5px;
+	border: solid #00CCFF;
+	border-radius: 55px;
 }
+

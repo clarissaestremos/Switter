@@ -4,7 +4,7 @@ class SessionController < ApplicationController
 
   def create
   	sweeter = Sweeter.find_by_username(params[:username])
-    @username = Sweeter.find(session[:sweeter_id]).username
+   
   	if sweeter.nil?
   		 redirect_to 'new'
   	else

@@ -1,30 +1,6 @@
-<h1>Listing sweeters</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Password digest</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id="main_title">
+	<%= link_to image_tag("head.jpg"), sweeters_path %>
+</div>
 
-  <tbody>
-    <% @sweeters.each do |sweeter| %>
-      <tr>
-        <td><%= sweeter.username %></td>
-        <td><%= sweeter.password_digest %></td>
-        <td><%= link_to 'Show', sweeter %></td>
-        <td><%= link_to 'Edit', edit_sweeter_path(sweeter) %></td>
-        <td><%= link_to 'Destroy', sweeter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Sweeter', new_sweeter_path %>
-<%= link_to 'Sign in', session_new_path %>
+ <%= render 'session/new' %>

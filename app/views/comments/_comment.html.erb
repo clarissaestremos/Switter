@@ -1,8 +1,6 @@
 <div id="comments">
   <strong><%= comment.commenter %></strong>::<em><%= comment.body %></em>
-  <div id="posted"> <small><%= link_to 'Delete', [comment.post, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' }, id: 'link' %> | <strong>Posted <%= time_ago_in_words(comment.created_at)%> ago </strong> </small></div>
+  <div id="posted"> <small><strong>Posted <%= time_ago_in_words(comment.created_at)%> ago </strong> </small></div>
  
 </div>
  

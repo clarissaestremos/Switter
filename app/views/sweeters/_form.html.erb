@@ -1,13 +1,25 @@
-<%= simple_form_for(@sweeter) do |f| %>
-  <%= f.error_notification %>
+<div id="main_title">
+	<%= link_to image_tag("head.jpg"), sweeters_path %>
+	
+</div>
 
-  <div class="form-inputs">
-    <%= f.input :username %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
-  </div>
+<div id="signup">
+	<div id="back">
+		<%= link_to 'Back', sweeters_path %>
+	</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+	<h3>Sign up</h3>
+	<%= simple_form_for(@sweeter) do |f| %>
+	  <%= f.error_notification %>
+
+	  <div class="form-inputs">
+	    <%= f.input :username %>
+	    <%= f.input :password %>
+	    <%= f.input :password_confirmation %>
+	  </div>
+
+	  <div class="form-actions">
+	    <%= f.button :submit, 'Submit' %>
+	  </div>
+	<% end %>
+</div>

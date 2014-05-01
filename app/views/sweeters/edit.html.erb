@@ -1,6 +1,19 @@
 <h1>Editing sweeter</h1>
 
-<%= render 'form' %>
+<%= simple_form_for(@sweeter) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :old_password %>
+    <%= f.input :new_password %>
+    <%= f.input :password_confirmation %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @sweeter %> |
 <%= link_to 'Back', sweeters_path %>
