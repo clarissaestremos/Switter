@@ -11,9 +11,13 @@
     <%= csrf_meta_tags %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+   
+    </head>
 
   <body>
+    
     <%= yield %>
   </body>
 </html>

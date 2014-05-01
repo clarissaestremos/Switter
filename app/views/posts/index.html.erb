@@ -1,42 +1,42 @@
-<div id="main_title">
-   Switter 
-</div>
 
-<div id="user">
-  Hi username!
-</div>
+<body>
+  <div id="main_title">
+   <!--<%= image_tag('bg.jpg') %> -->  Switter 
+  </div>
 
-<div id="settings">
-  <%= link_to 'Change Password' %> | <%= link_to 'Logout', swits_path %>
-</div>
+  <div id="user">
+    Hi <%= @username %>!
+  </div>
 
-<%= render 'form' %>
+  <div id="settings">
+    <%= link_to 'Change Password' %> | <%= link_to 'Logout', logout_path %>
+  </div>
+
+  <%= render 'form' %>
 
 
-<div id="list">
+  <div id="list">
 
-<table>
-<% @posts.each do |post| %>
-  
-  <tr> <div id="main">
-   <h4><%= post.body %></h4> 
-        <small><%= post.sweet %> Sweets   |  <%= post.sour %> Sours  |  <strong>Posted <%= time_ago_in_words(post.created_at) %> ago</strong> </small>
-        <div id="menu"><%= link_to "Sweet", sweet_a_post_path(id: post.id) %> | <%= link_to 'Sour', sour_a_post_path(id: post.id) %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post_path(id: post.id), :method => :delete, data: { confirm: 'Are you sure?' } %></div>
+  <table>
+  <% @posts.each do |post| %>
     
-    <%= render post.comments %>
-  
-    <div id="form_comment">
-      <%= form_for([post, post.comments.build]) do |f| %>
-          <%= f.text_field :commenter, :placeholder => 'Commenter' %>
-          <%= f.text_area :body, size: "120x5", :placeholder => 'Write a Comment..'%>
-          <%= f.submit "Comment", class: 'tiny button', id: 'log-btn2'%>
-      <% end %>
+    <tr> <div id="main">
+     <h4><%= post.body %></h4> 
+          <small><%= post.sweet %> Sweets   |  <%= post.sour %> Sours  |  <strong>Posted <%= time_ago_in_words(post.created_at) %> ago</strong> </small>
+          <div id="menu"><%= link_to "Sweet", sweet_a_post_path(id: post.id) %> | <%= link_to 'Sour', sour_a_post_path(id: post.id) %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post_path(id: post.id), :method => :delete, data: { confirm: 'Are you sure?' } %></div>
+      
+      <%= render post.comments %>
+    
+      <div id="form_comment">
+        <%= form_for([post, post.comments.build]) do |f| %>
+            <%= f.text_field :commenter, :placeholder => 'Commenter' %>
+            <%= f.text_area :body, size: "120x5", :placeholder => 'Write a Comment..'%>
+            <%= f.submit "Comment", class: 'tiny button', id: 'log-btn2'%>
+        <% end %>
+        </div>
       </div>
-    </div>
-  </tr>
-
-
-<% end %>
-</table>
-
-
+    </tr>
+  <% end %>
+  </table>
+</div>
+</body>

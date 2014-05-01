@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @sweeter.username %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @sweeter.password_digest %>
+</p>
+
+<%= link_to 'Edit', edit_sweeter_path(@sweeter) %> |
+<%= link_to 'Back', sweeters_path %>
