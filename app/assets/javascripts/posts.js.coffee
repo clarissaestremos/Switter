@@ -12,3 +12,10 @@ jQuery ->
   updateCountdown()
   $("#post_body").change updateCountdown
   $("#post_body").keyup updateCountdown
+
+$(document).ready -> # When the Dom is ready
+  $(".error").fadeOut 2000 #Add a fade out effect that will last for 2000 millisecond
+  $(".alert").fadeOut 2000
+  $(".notice").fadeOut 2000
+  $(".success").fadeOut 2000
+  $(".info").fadeOut 2000

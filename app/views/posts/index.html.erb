@@ -10,7 +10,7 @@
 
 
   <div id="user">
-   <div id="pic"><%= image_tag('pic.jpg', size: "70") %></div> <div id="hi">Hi <%= session[:username] %>!</div>
+   <div id="pic"><%= image_tag('pic.jpg', size: "70") %></div> <div id="hi"><%= session[:username] %></div>
   </div>
 
   <%= render 'form' %>

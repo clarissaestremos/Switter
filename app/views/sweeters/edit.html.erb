@@ -1,3 +1,16 @@
+<div id="main_title">
+  <%= link_to image_tag("head.jpg"), posts_path %>
+  <div id="settings">
+    
+    <%= link_to 'Change Password', edit_sweeter_path(session[:id]) %> | <%= link_to 'Logout', logout_path %>
+  </div>
+</div>
+
+
+  <div id="user1">
+   <div id="pic"><%= image_tag('pic.jpg', size: "70") %></div> <div id="hi">Hi <%= session[:username] %>!</div>
+  </div>
+
 <div id="signup">
 	<div id="back">
 		<%= link_to 'Back', posts_path %>

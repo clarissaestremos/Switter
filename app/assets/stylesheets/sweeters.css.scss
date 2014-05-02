@@ -54,7 +54,7 @@
 
 
 #signup{
-	margin: 100px 400px 0px 400px;
+	margin: 50px 400px 0px 400px;
 	border: solid #00CCFF;
 	border-radius: 20px;
 	padding: 30px;
@@ -70,4 +70,22 @@
 
 h3{
 	color: #0033FF;
+}
+
+#user1{
+	margin-top: 5px;
+	margin-right: 500px;
+	margin-left: 500px;
+	background-color: #00CCFF;
+	border: solid #0066FF;
+	border-radius: 25px;
+	text-align: center;
+	font-family: Arial;
+	font-size: 20px;
+	padding: 20px;
+}
+
+.notice, .alert{
+	text-align: center;
+	background-color: white;
 }

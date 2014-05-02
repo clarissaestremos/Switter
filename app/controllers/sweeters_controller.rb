@@ -28,7 +28,7 @@ class SweetersController < ApplicationController
 
     respond_to do |format|
       if @sweeter.save
-        format.html { redirect_to @sweeter, notice: 'Sweeter was successfully created.' }
+        format.html { redirect_to @sweeter, notice: 'You have successfully registered.' }
         format.json { render action: 'show', status: :created, location: @sweeter }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class SweetersController < ApplicationController
   def update
     respond_to do |format|
       if @sweeter.update(sweeter_params)
-        format.html { redirect_to @sweeter, notice: 'Sweeter was successfully updated.' }
+        format.html { redirect_to @sweeter, notice: 'Password was successfully changed.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
