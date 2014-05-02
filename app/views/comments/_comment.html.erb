@@ -1,6 +1,6 @@
 <div id="comments">
   <strong><%= comment.commenter %></strong>::<em><%= comment.body %></em>
-  <div id="posted"> <small><strong>Posted <%= time_ago_in_words(comment.created_at)%> ago </strong> </small></div>
+  <div id="posted"> <small><strong>Commented about<%= time_ago_in_words(comment.created_at)%> ago </strong> </small></div>
  
 </div>
  

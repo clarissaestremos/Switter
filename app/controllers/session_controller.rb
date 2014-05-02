@@ -6,14 +6,14 @@ class SessionController < ApplicationController
   	sweeter = Sweeter.find_by_username(params[:username])
    
   	if sweeter.nil?
-  		 redirect_to 'new'
+  		 redirect_to sweeters_path
   	else
   		if sweeter.authenticate(params[:password])
         session[:id] = sweeter.id
         session[:username] = sweeter.username
         redirect_to posts_path
       else
-  		  redirect_to 'new'
+  		  redirect_to sweeters_path
       end
   	end
   end

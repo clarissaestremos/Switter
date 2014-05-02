@@ -17,17 +17,28 @@
 	<div id="back">
 		<%= link_to 'Back', posts_path %>
 	</div>
-  	<h4>Related tags</h4>
+  	<h4>Related Swits</h4>
 	<table>
+		
 		<% @doortags.each do |doortag| %>
 		<hr>
-		 <%= image_tag('pic.jpg', size: "50") %> <strong> <%= @posts.where(id: doortag.post_id).first.author %></strong><br/>
+		<h5>
+		<%= image_tag('pic.jpg', size: "50") %> <strong> <%= @posts.where(id: doortag.post_id).first.author %></strong><br/>
 		 <% text = @posts.where(id: doortag.post_id).first.body %>
          <% @posts.where(id: doortag.post_id).first.body.scan(/{(.*?)}/) do |f| %>
             <% text = text.gsub('{' + f[0] + '}', "<a data-method=\"get\" href=\"\/doortag\?tag=" + f[0] + "\">{" + f[0] + "}</a>").html_safe %>
           <% end %>
           <%= text %>
+         </h5>
 		</hr>
+		<small><%= @posts.where(id: doortag.post_id).first.sweet %> Sweets   |  <%= @posts.where(id: doortag.post_id).first.sour %> Sours  |  <strong>Posted <%= time_ago_in_words(@posts.where(id: doortag.post_id).first.created_at) %> ago</strong> </small>
+		<%= render @posts.where(id: doortag.post_id).first.comments %>
+
+          <%= form_for([@posts.where(id: doortag.post_id).first, @posts.where(id: doortag.post_id).first.comments.build]) do |f| %>
+              <%= f.hidden_field :commenter, :value => session[:username] %>
+              <%= f.text_area :body, size: "120x5", :placeholder => 'Write a Comment..'%>
+              <%= f.submit "Comment", class: 'tiny button', id: 'log-btn2'%>
+          <% end %>
 		<% end %>
 	</table>
   </div>

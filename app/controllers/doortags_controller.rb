@@ -4,7 +4,7 @@ class DoortagsController < ApplicationController
   # GET /doortags
   # GET /doortags.json
   def index
-    @doortags = Doortag.all
+    @doortags = Doortag.all.order('created_at desc')
   end
 
   # GET /doortags/1
