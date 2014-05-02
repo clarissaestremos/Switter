@@ -23,4 +23,4 @@ $(document).ready( function() {// When the Dom is ready
     $(".success").fadeOut(2000);
     $(".info").fadeOut(2000);
 
-});
+});	

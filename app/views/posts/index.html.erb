@@ -10,7 +10,7 @@
 
 
   <div id="user">
-    Hi <%= session[:username] %>!
+   <div id="pic"><%= image_tag('pic.jpg', size: "70") %></div> <div id="hi">Hi <%= session[:username] %>!</div>
   </div>
 
   <%= render 'form' %>
@@ -21,11 +21,12 @@
       
       <tr> <div id="main">
         <h4>
-           <strong><%= post.author %></strong>::<% text = post.body %>
+           <%= image_tag('pic.jpg', size: "50") %> <strong><%= post.author %></strong><br/><% text = post.body %>
           <% post.body.scan(/{(.*?)}/) do |f| %>
             <% text = text.gsub('{' + f[0] + '}', "<a data-method=\"get\" href=\"\/doortag\/related\?tag=" + f[0] + "\">{" + f[0] + "}</a>").html_safe %>
           <% end %>
           <%= text %>
+         
         </h4> 
              <hr><small><%= post.sweet %> Sweets   |  <%= post.sour %> Sours  |  <strong>Posted <%= time_ago_in_words(post.created_at) %> ago</strong> </small> </hr>
             <div id="menu"><%= link_to "Sweet", sweet_a_post_path(id: post.id) %> | <%= link_to 'Sour', sour_a_post_path(id: post.id) %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post_path(id: post.id), :method => :delete, data: { confirm: 'Are you sure?' } %> </div>

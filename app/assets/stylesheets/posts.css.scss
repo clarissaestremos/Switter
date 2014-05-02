@@ -51,7 +51,7 @@
 	border-radius: 5px;
 	padding: 10px;
 	margin: 5px;
-	background-color: #B8B8B8 0.5;
+	background-color: rgba(120,120,120,0.3);
 }
 
 .countdown {
@@ -94,3 +94,14 @@ body{
 	padding-right:10px;	
 }
 
+#pic{
+	border: solid;
+	border-radius: 10px;
+	width: 20%;
+}
+
+#hi{
+	margin-top: -55px;
+	font-size: 30px;
+	font-family: Verdana;
+}
