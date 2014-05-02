@@ -13,3 +13,8 @@
 
  *= require_tree .
  */
+
+.notice, .alert{
+	text-align: center;
+	background-color: white;
+}

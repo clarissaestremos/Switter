@@ -21,7 +21,7 @@
       
       <tr> <div id="main">
         <h4>
-           <strong><% post.author %></strong>::<% text = post.body %>
+           <strong><%= post.author %></strong>::<% text = post.body %>
           <% post.body.scan(/{(.*?)}/) do |f| %>
             <% text = text.gsub('{' + f[0] + '}', "<a data-method=\"get\" href=\"\/doortag\/related\?tag=" + f[0] + "\">{" + f[0] + "}</a>").html_safe %>
           <% end %>

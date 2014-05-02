@@ -15,4 +15,12 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+$(document).ready( function() {// When the Dom is ready
 
+    $(".error").fadeOut(2000); //Add a fade out effect that will last for 2000 millisecond
+    $(".alert").fadeOut(2000);
+    $(".notice").fadeOut(2000);
+    $(".success").fadeOut(2000);
+    $(".info").fadeOut(2000);
+
+});
