@@ -3,6 +3,7 @@
   <div id="main_title">
   <%= link_to image_tag("head.jpg"), posts_path %>
   <div id="settings">
+    
     <%= link_to 'Change Password', edit_sweeter_path(session[:id]) %> | <%= link_to 'Logout', logout_path %>
   </div>
 </div>
@@ -12,25 +13,21 @@
     Hi <%= session[:username] %>!
   </div>
 
-  
-
   <%= render 'form' %>
-
-
   <div id="list">
 
     <table>
     <% @posts.each do |post| %>
       
       <tr> <div id="main">
-        <h4> 
-          <% text = post.body %>
+        <h4>
+           <strong><% post.author %></strong>::<% text = post.body %>
           <% post.body.scan(/{(.*?)}/) do |f| %>
             <% text = text.gsub('{' + f[0] + '}', "<a data-method=\"get\" href=\"\/doortag\/related\?tag=" + f[0] + "\">{" + f[0] + "}</a>").html_safe %>
           <% end %>
           <%= text %>
         </h4> 
-            <small><%= post.sweet %> Sweets   |  <%= post.sour %> Sours  |  <strong>Posted <%= time_ago_in_words(post.created_at) %> ago</strong> </small>
+             <hr><small><%= post.sweet %> Sweets   |  <%= post.sour %> Sours  |  <strong>Posted <%= time_ago_in_words(post.created_at) %> ago</strong> </small> </hr>
             <div id="menu"><%= link_to "Sweet", sweet_a_post_path(id: post.id) %> | <%= link_to 'Sour', sour_a_post_path(id: post.id) %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post_path(id: post.id), :method => :delete, data: { confirm: 'Are you sure?' } %> </div>
              <div id="form_comment">
 

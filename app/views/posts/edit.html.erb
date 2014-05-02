@@ -1,35 +1,40 @@
 
 
-<div id="main_title">
-   Switter 
+<body>
+  <div id="main_title">
+  <%= link_to image_tag("head.jpg"), posts_path %>
+  <div id="settings">
+    
+    <%= link_to 'Change Password', edit_sweeter_path(session[:id]) %> | <%= link_to 'Logout', logout_path %>
+  </div>
 </div>
 
-<div id="user">
-  Hi username!
-</div>
 
-<div id="settings">
-  <%= link_to 'Change Password' %> | <%= link_to 'Logout', swits_path %>
-</div>
-
-<%= render 'form' %>
+  <div id="user">
+    Hi <%= session[:username] %>!
+  </div>
 
 
-<div id="list">
+<div id="list1">
 
 <table>
 
   <tr>
-    <h4>Edit Swit</h4>
- <%= form_for :post, url: post_path, method: :patch do |f| %>
+    <h3>Edit Swit</h3>
+	<div id="back">
+		<%= link_to 'Back', posts_path %>
+	</div>
+	 <%= form_for :post, url: post_path, method: :patch do |f| %>
 
-  <%= f.text_area :body, size: "120x12" %>
-  <%= f.submit "Edit",  class: 'tiny button', id: 'log-btn2' %>
-<% end %>
+	  <%= f.text_area :body, size: "120x12" %>
+    <span class="countdown"></span>
+	  <%= f.submit "Edit",  class: 'tiny button', id: 'log-btn2' %>
+	<% end %>
  
-<%= link_to 'Back', posts_path %>
   </tr>
 
 </table>
 
 </div>
+
+

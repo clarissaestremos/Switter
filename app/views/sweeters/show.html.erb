@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div id="main_title">
+	<%= link_to image_tag("head.jpg"), sweeters_path %>
+</div>
+<div id="signup">
+	<div id="back">
+		<%= link_to 'Back', sweeters_path %>
+	</div>
+	<center><h3>
+	  <strong>Username:</strong>
+	  <%= @sweeter.username %>
+	</h3></center>
 
-<p>
-  <strong>Username:</strong>
-  <%= @sweeter.username %>
-</p>
+</div>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @sweeter.password_digest %>
-</p>
-
-<%= link_to 'Edit', edit_sweeter_path(@sweeter) %> |
-<%= link_to 'Back', sweeters_path %>
