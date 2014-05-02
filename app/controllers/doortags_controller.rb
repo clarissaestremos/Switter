@@ -51,6 +51,14 @@ class DoortagsController < ApplicationController
     end
   end
 
+  def related
+    @tag=params[:tag]
+    @posts=Post.all
+    @doortags = Doortag.where(tag: @tag)
+
+    render 'doortags/related'
+  end
+
   # DELETE /doortags/1
   # DELETE /doortags/1.json
   def destroy

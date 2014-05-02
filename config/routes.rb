@@ -5,6 +5,7 @@ Switter::Application.routes.draw do
 
   resources :sweeters
 
+  get 'doortags/related'
   get "session/new"
   get "session/create"
   get "session/destroy"
@@ -24,9 +25,10 @@ Switter::Application.routes.draw do
   resources :posts
 
   resources :posts do
-    resources :comments
-
+    resources :comments, :doortags
   end
+
+  get '/doortag' => 'doortags#related'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

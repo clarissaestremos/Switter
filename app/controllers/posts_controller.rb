@@ -8,6 +8,13 @@ class PostsController < ApplicationController
      @post = Post.new(post_params)
      
      if @post.save
+      @tags = @post.body.scan(/\{[^}]*\}/)
+      @tags.each do |doortag|
+          doortag=doortag.gsub(/\{/,"")
+          doortag=doortag.gsub(/\}/,"")
+          doortag=Doortag.create(post_id: @post.id, tag: doortag)
+          doortag.save
+      end
       redirect_to posts_path
     else 'new'
     end

@@ -1,0 +1,34 @@
+<div id="main_title">
+  <%= link_to image_tag("head.jpg"), posts_path %>
+  <div id="settings">
+    
+    <%= link_to 'Change Password', edit_sweeter_path(session[:id]) %> | <%= link_to 'Logout', logout_path %>
+  </div>
+</div>
+
+
+  <div id="user">
+   <div id="pic"><%= image_tag('pic.jpg', size: "70") %></div> <div id="hi">Hi <%= session[:username] %>!</div>
+  </div>
+
+  <%= render 'posts/form' %>
+  <div id="doortags">
+
+	<div id="back">
+		<%= link_to 'Back', posts_path %>
+	</div>
+  	<h4>Related tags</h4>
+	<table>
+		<% @doortags.each do |doortag| %>
+		<hr>
+		 <%= image_tag('pic.jpg', size: "50") %> <strong> <%= @posts.where(id: doortag.post_id).first.author %></strong><br/>
+		 <% text = @posts.where(id: doortag.post_id).first.body %>
+         <% @posts.where(id: doortag.post_id).first.body.scan(/{(.*?)}/) do |f| %>
+            <% text = text.gsub('{' + f[0] + '}', "<a data-method=\"get\" href=\"\/doortag\?tag=" + f[0] + "\">{" + f[0] + "}</a>").html_safe %>
+          <% end %>
+          <%= text %>
+		</hr>
+		<% end %>
+	</table>
+  </div>
+

@@ -1,3 +1,14 @@
 // Place all the styles related to the doortags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#doortags{
+	float:left;
+	margin-top: -340px;
+	margin-right: 100px;
+	margin-left: 550px;
+	border: solid #0066FF;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: rgba(120,120,120,0.3);
+}
